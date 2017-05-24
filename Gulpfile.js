@@ -26,7 +26,6 @@ var lib = require('bower-files')({
   }
 });
 
-
 gulp.task('jshint', function(){
   return gulp.src(['js/*.js'])
     .pipe(jshint())
