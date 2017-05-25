@@ -14,6 +14,9 @@ function displayBikes(bikes){
         <li><img class="bike-img" src="${bike.thumb}"></li>
         </ul></li>`);
   });
+  $('.show-on-click').click(function() {
+    $(this).children().toggle();
+  });
 }
 
 $(document).ready(function(){
@@ -25,9 +28,4 @@ $(document).ready(function(){
     newSearch.listByProximity(zip, distance, displayBikes);
   });
 
-  $('.show-on-click').click(function() {
-    console.log(this);
-    alert('you clicked');
-    // this.bike_info.show();
-  });
 });
