@@ -16,14 +16,26 @@ function displayBikes(bikes, displayCoordinates){
         </ul></li>`);
   });
   $('.show-on-click').click(function(displayCoordinates) {
-    $(this).children().toggle();
+    $(this).children().show();
     var bike = $(this).children().children()[5];
     var bikeID = $(bike).text();
     var newCoordinates = new Bike();
     var bikeDiv = this;
     function displayCoordinates(location, bikeDiv) {
       // console.log(location);
-      $(bikeDiv).append(`<h1>${location.latitude}</h1>`)
+      $(bikeDiv).append(`<div class="g-map" id="map"></div>`)
+      function initMap(location) {
+        var uluru = {lat: location.latitude, lng: location.longitude};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+      initMap(location)
     }
     var location = newCoordinates.getCoordinates(bikeID, displayCoordinates, bikeDiv);
   });
