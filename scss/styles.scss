@@ -1,0 +1,16 @@
+.bike-img {
+  width: 200px;
+}
+
+.show-on-click {
+  text-decoration: underline;
+  color: blue;
+    &:hover {
+      color: black;
+      cursor: pointer;
+    }
+}
+
+.bike-info {
+  display: none;
+}
